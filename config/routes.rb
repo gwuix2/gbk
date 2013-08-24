@@ -1,4 +1,21 @@
 Gersebkor::Application.routes.draw do
+  
+  
+
+  get 'bejelentkezes' => "new_user_ses"
+  get 'bemutatkozas' => "static_pages#about"
+
+  devise_scope :user do
+    get "/belepes" => "devise/sessions#new"
+    get "/regisztracio" => "devise/registrations#new"
+    get "/kilepes" => "devise/sessions#destroy"
+  end
+
+  devise_for :users
+  resources :posts, path: "hirek"
+
+  root 'posts#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

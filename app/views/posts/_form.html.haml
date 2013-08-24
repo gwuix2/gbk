@@ -1,0 +1,10 @@
+.row
+  .large-8.large-centered.columns
+    = simple_form_for @post do |f|
+      = f.input :title, label: "Cím"
+      = f.input :body, label: "Test", input_html: { rows: 15}
+      = f.simple_fields_for :photos do |builder|
+        = builder.input :name
+        = builder.file_field :image, multiple: true, name: "post[photos_attributes][0][image]"
+      /= link_to_add_fields "Kép hozzáadása", f, :photos
+      = f.submit "Mentés", class: "button"

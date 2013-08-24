@@ -1,0 +1,25 @@
+- provide(:title, "Hírek")
+.row
+  .large-9.columns
+    - @posts.each do |post|
+      .row
+        .large-6.columns
+          = link_to post do
+            %h3= post.title
+        .large-6.columns
+          .right 
+            %br/
+            = post.created_at.to_date
+      .row
+        .large-12.columns
+          = post.body
+      %br/
+      %br/
+      
+/  %td= post.title
+/  %td= post.body
+/  %td= link_to 'Show', post
+/  %td= link_to 'Edit', edit_post_path(post)
+/  %td= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br/

@@ -1,0 +1,12 @@
+%br/
+.row
+  %hr/
+  .large-6.columns
+    %p © Gersekarátért Barát kör. Minden jog fenntartva.
+  .large-6.columns
+    %ul.inline-list.right
+      %li
+        - unless user_signed_in?
+          = link_to  "Belépés", belepes_path
+        - else
+          = link_to "Kilépés", kilepes_path

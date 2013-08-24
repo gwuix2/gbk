@@ -16,10 +16,14 @@ group :production do
   gem 'pg'
 end
 
-group :assets do
-  gem 'sass-rails', '~> 4.0.0'
-end
-
+gem 'jquery-fileupload-rails'
+gem 'carrierwave'
+gem 'devise'
+gem 'simple_form'
+gem 'cancan'
+gem 'sass-rails', '~> 4.0.0'
+gem 'zurb-foundation'
+gem 'foundation_rails_helper'
 gem 'haml-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
