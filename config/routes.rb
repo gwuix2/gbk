@@ -2,6 +2,8 @@ Gersebkor::Application.routes.draw do
   
   
 
+  resources :photos
+
   get 'bejelentkezes' => "new_user_ses"
   get 'bemutatkozas' => "static_pages#about"
 
