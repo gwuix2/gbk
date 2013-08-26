@@ -10,7 +10,7 @@ Gersebkor::Application.routes.draw do
     get "/regisztracio" => "devise/registrations#new"
     get "/kilepes" => "devise/sessions#destroy"
   end
-
+  
   devise_for :users
   resources :posts, path: "hirek"
 

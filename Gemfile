@@ -10,11 +10,17 @@ group :development do
   gem 'better_errors'
   gem 'sqlite3'
   gem 'binding_of_caller'
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'guard-livereload'
 end
 
 group :production do
   gem 'pg'
 end
+
 
 gem 'jquery-fileupload-rails'
 gem 'carrierwave'
@@ -31,6 +37,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'therubyracer'
+gem "nested_form"
+
 
 group :doc do
   gem 'sdoc', require: false
