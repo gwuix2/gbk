@@ -1,0 +1,8 @@
+- if user_signed_in?
+  = simple_form_for @post.photos.new do |f|
+    %h3
+      Képfeltöltés
+      %i.fi-upload
+    = f.input :image, input_html: { multiple: true, name: "photo[image]"}, label: false
+    = f.input :post_id, val: @post.id, as: :hidden
+  %small *A képek feltöltése a háttérben történik.

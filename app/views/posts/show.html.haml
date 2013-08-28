@@ -1,12 +1,14 @@
 - provide(:title, @post.title)
-%h2= @post.title
+%h2
+  = @post.title
+  - if user_signed_in?
+    = link_to edit_post_path(@post), title: "Szerkesztés" do
+      %i.fi-page-edit
+    = link_to post_path(@post), method: :delete, title: "Törlés" do
+      %i.fi-trash
+
 %p= simple_format(@post.body)
 %p
   = link_to "<< Vissza", root_path
-- if can? :update, @psot
-  %p
-    = link_to "Szerkesztés", edit_post_path(@post)
-    = link_to "Törlés", post_path(@post), method: :delete
-- @post.photos.each do |photo|
-  = photo.name
-  = photo.image
+
+= render "post_photos"

@@ -1,0 +1,32 @@
+.row
+  .large-12.columns
+    %h4 Hírek vezérlés
+    %table
+      %thead
+        %tr
+          %th Hely
+          %th Létrehozva
+          %th Cím
+          %th Test
+          %th Képek
+          %th Beállítások
+      %tbody
+      - @posts.each_with_index do |post, i|
+        %tr
+          %td 
+            = i + 1
+          %td
+            = post.created_at.to_date
+          %td
+            = link_to post do
+              = post.title
+          %td
+            = truncate(post.body, length: 30)
+          %td
+            = post.photos.count.to_s + "db"
+          %td
+            = link_to edit_post_path(post), title: "Szerkesztés" do
+              %i.fi-page-edit.large-text
+            = link_to post, method: :delete, title: "Törlés", confirm: "Biztos hogy törlöd #{ post.title }?" do
+              %i.fi-trash.large-text
+    = link_to "Új hír", new_post_path, class: "button"

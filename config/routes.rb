@@ -1,7 +1,5 @@
 Gersebkor::Application.routes.draw do
   
-  
-
   resources :photos
 
   get 'bejelentkezes' => "new_user_ses"

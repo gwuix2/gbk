@@ -21,14 +21,16 @@ group :production do
   gem 'pg'
 end
 
-
+gem 'friendly_id', '>= 5.0.0.beta4'
 gem 'jquery-fileupload-rails'
+gem 'rmagick'
 gem 'carrierwave'
 gem 'devise'
 gem 'simple_form'
 gem 'cancan'
 gem 'sass-rails', '~> 4.0.0'
 gem 'zurb-foundation'
+gem 'foundation-icons-sass-rails'
 gem 'foundation_rails_helper'
 gem 'haml-rails'
 gem 'uglifier', '>= 1.3.0'

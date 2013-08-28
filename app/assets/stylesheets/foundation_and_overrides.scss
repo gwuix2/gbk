@@ -51,7 +51,7 @@ $em-base: 16 !default;
 
 $default-float: left;
 
-// $body-bg: #fff;
+// $body-bg: #005F9E;
 // $body-font-color: #222;
 // $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 // $body-font-weight: normal;
@@ -1322,3 +1322,18 @@ textarea
   margin-top: 22px;
 }
 
+.th {
+  margin-top: 5px;
+}
+
+.th:first-of-type {
+  margin-left: 0px;
+}
+
+.fi-photo {
+  color: #01A808;
+}
+
+.large-text {
+  font-size: 145%;
+}

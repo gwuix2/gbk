@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /photos
   # GET /photos.json
   def index
@@ -24,17 +24,17 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    @photo = Photo.new(photo_params)
+    @photo = Photo.create!(photo_params)
 
-    respond_to do |format|
-      if @photo.save
-        format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @photo }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
-      end
-    end
+    #respond_to do |format|
+    #  if @photo.save
+    #    format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
+    #    format.json { render action: 'show', status: :created, location: @photo }
+    #  else
+    #    format.html { render action: 'new' }
+    #    format.json { render json: @photo.errors, status: :unprocessable_entity }
+    #  end
+    #end
   end
 
   # PATCH/PUT /photos/1
