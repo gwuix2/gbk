@@ -1,10 +1,6 @@
-.row
-  .large-9.large-centered.columns
-    = simple_nested_form_for @post do |f|
-      = f.input :title, label: "Cím"
-      = f.input :body, label: "Test", input_html: { rows: 15}
-      /= link_to_add_fields "Kép hozzáadása", f, :photos
-      = f.submit "Mentés", class: "button"
-
-    = render "post_photos"
-    = render "post_photos_form"
+= simple_nested_form_for @post do |f|
+  = f.input :title, label: "Cím"
+  = f.input :body, label: "Test", input_html: { rows: 15}
+  /= link_to_add_fields "Kép hozzáadása", f, :photos
+  = f.submit "Mentés", class: "button"
+= render "post_photos"

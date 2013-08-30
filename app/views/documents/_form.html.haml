@@ -1,0 +1,14 @@
+.row
+  .large-9.large-centered.columns
+    = simple_form_for(@document) do |f|
+      = f.error_notification
+      .row
+        .large-6.columns
+          .inputs
+            = f.input :name, lebel: "Név"
+            = f.input :doc, label: false
+            = f.input :doctype, collection: [DocumentType.all, :name]
+        
+          .actions
+            = f.submit "Mentés", class: "button expand"
+            = link_to "Mégse", documents_path,  class: "button secondary expand"

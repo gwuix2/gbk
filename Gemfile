@@ -4,24 +4,26 @@ gem 'rails', '4.0.0'
 
 gem 'thin'
 
-gem 'sqlite3'
-
 group :development do
   gem 'better_errors'
   gem 'sqlite3'
   gem 'binding_of_caller'
-  gem 'selenium-webdriver'
+end
+
+group :development,:test do
+  gem 'rspec-rails', '~> 2.0'
   gem 'capybara'
-  gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'guard-livereload'
+  gem 'selenium-webdriver'
 end
 
 group :production do
   gem 'pg'
 end
 
-gem 'friendly_id', '>= 5.0.0.beta4'
+gem 'foundation_rails_helper'
+gem 'friendly_id', '5.0.0.rc1'
 gem 'jquery-fileupload-rails'
 gem 'rmagick'
 gem 'carrierwave'

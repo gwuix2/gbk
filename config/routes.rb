@@ -1,6 +1,6 @@
 Gersebkor::Application.routes.draw do
   
-  resources :photos
+  resources :document_types
 
   get 'bejelentkezes' => "new_user_ses"
   get 'bemutatkozas' => "static_pages#about"
@@ -13,6 +13,8 @@ Gersebkor::Application.routes.draw do
   
   devise_for :users
   resources :posts, path: "hirek"
+  resources :documents, path: "dokumentumok"
+  resources :photos, path: "kepek"
 
   root 'posts#index'
 

@@ -1,0 +1,27 @@
+- provide(:title, "Dokumentumok")
+%h1 Dokumentumok
+
+- @documents.each do |document|
+  %p
+    = document.doctype
+    = link_to document.name, document
+    = link_to document.doc.url do
+      Letöltés
+      %i.fi-download
+
+= link_to 'New Document', new_document_path
+
+%br/
+%br/
+%hr/
+.row
+  .large-5.columns
+    %h4 Új dokumentum típus
+    = simple_form_for DocumentType.new do |f|
+      = f.input :name, label: "Név"
+      = f.submit "Mentés", class: "button small"
+    %h5 Dokumentum típusok:
+    - @document_types.each do |dc|
+      %span
+        = dc.name
+        = link_to "x", dc,  method: :delete

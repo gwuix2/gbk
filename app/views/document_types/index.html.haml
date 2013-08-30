@@ -1,0 +1,19 @@
+%h1 Listing document_types
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @document_types.each do |document_type|
+    %tr
+      %td= document_type.name
+      %td= link_to 'Show', document_type
+      %td= link_to 'Edit', edit_document_type_path(document_type)
+      %td= link_to 'Destroy', document_type, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Document type', new_document_type_path

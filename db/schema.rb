@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130828122014) do
+ActiveRecord::Schema.define(version: 20130828150031) do
+
+  create_table "document_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "documents", force: true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.string   "doc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "doctype"
+  end
+
+  add_index "documents", ["slug"], name: "index_documents_on_slug", unique: true
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false

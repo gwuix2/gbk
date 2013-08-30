@@ -27,6 +27,6 @@
           %td
             = link_to edit_post_path(post), title: "Szerkesztés" do
               %i.fi-page-edit.large-text
-            = link_to post, method: :delete, title: "Törlés", confirm: "Biztos hogy törlöd #{ post.title }?" do
+            = link_to post, method: :delete, title: "Törlés", confirm: 'Biztos hogy törlöd?' do
               %i.fi-trash.large-text
     = link_to "Új hír", new_post_path, class: "button"

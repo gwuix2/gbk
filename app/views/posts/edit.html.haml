@@ -1,6 +1,7 @@
 - provide(:title, @post.title + " szerkesztése")
 .row
-  .large-8.large-centered.columns
+  .large-9.large-centered.columns
     %h2 Hír szerkesztése
 
-= render 'form'
+    = render 'form'
+    = render "post_photos_form"

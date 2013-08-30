@@ -18,6 +18,10 @@
     = csrf_meta_tags
   %body
     = render "shared/nav"
+    .container
+      .row
+        .twelve.columns
+          = display_flash_messages
     .row
       .large-12.columns
         = yield

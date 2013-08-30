@@ -5,5 +5,7 @@
         %li
           = link_to photo.image_url do
             = image_tag(photo.image_url(:thumb), class: "th")
+          %h6.text-center
+            = link_to "törlés", photo, method: :delete, confirm: "Biztos hogy törlöd?"
 
 %br/
