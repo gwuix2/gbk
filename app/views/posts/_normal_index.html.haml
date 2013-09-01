@@ -1,22 +1,21 @@
-.row
-  .large-9.columns
+.row.background-img
+  .large-12.large-centered.columns
     - @posts.each do |post|
-      .row
-        .large-6.columns
-          = link_to post do
-            %h3
-              = post.title
-              - if post.photos.any?
-                %i.fi-photo{ title: "Galéria"}
-        .large-6.columns
-          .right 
-            %br/
-            = post.created_at.to_date
-      .row
-        .large-12.columns
-          = simple_format(truncate(post.body, length: 400, separator: " "))
-          %p
-            - if post.body.length > 400
-              = link_to "Teljes cikk >>", post
-      %br/
-      %br/
+      - unless post.project == true
+        .row
+          .large-6.columns
+            = link_to post do
+              %h3.left
+                = post.title
+                - if post.photos.any?
+                  %i.fi-photo{ title: "Galéria"}
+            %small.post-created-at
+              = post.created_at.to_date
+        .row
+          .large-12.columns
+            = simple_format(truncate(post.body, length: 400, separator: " "))
+            %p
+              - if post.body.length > 400
+                = link_to "Teljes cikk >>", post
+        %br/
+        %br/

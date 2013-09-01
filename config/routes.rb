@@ -4,6 +4,7 @@ Gersebkor::Application.routes.draw do
 
   get 'bejelentkezes' => "new_user_ses"
   get 'bemutatkozas' => "static_pages#about"
+  get 'projektek' => "static_pages#projects"
 
   devise_scope :user do
     get "/belepes" => "devise/sessions#new"

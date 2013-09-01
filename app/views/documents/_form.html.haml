@@ -7,7 +7,7 @@
           .inputs
             = f.input :name, lebel: "Név"
             = f.input :doc, label: false
-            = f.input :doctype, collection: [DocumentType.all, :name]
+            = f.input :doctype, collection: DocumentType.all, value_method: :name, label: "Dokumentum típusa", :include_blank => false
         
           .actions
             = f.submit "Mentés", class: "button expand"

@@ -1,0 +1,16 @@
+- provide(:title, "Projektek")
+%h1 Projektek
+- @project_groups.each do |year, projects|
+  %h3.subheader= year.year
+  %ul.large-block-grid-4
+    - projects.each do |p|
+      %li
+        .row
+          .large-9.large-centered.columns
+            = link_to p do
+              = image_tag(p.photos.first.image_url(:thumb), class: "th") if p.photos.any?
+              = image_tag('flower.jpg', class: "th") if !p.photos.any?
+              %h6.subheader.text-center
+                = p.title
+  
+  

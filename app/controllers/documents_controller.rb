@@ -1,11 +1,13 @@
+# coding: UTF-8
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
 
   # GET /documents
   # GET /documents.json
   def index
-    @documents = Document.all
-    @document_types = DocumentType.all
+    @documents = Document.order("doctype ASC").all
+    @document_groups = @documents.group_by(&:doctype)
+    @document_types = DocumentType.order("name ASC").all
   end
 
   # GET /documents/1
@@ -29,7 +31,7 @@ class DocumentsController < ApplicationController
 
     respond_to do |format|
       if @document.save
-        format.html { redirect_to @document, notice: 'Document was successfully created.' }
+        format.html { redirect_to documents_url, notice: 'Dokumentum sikeresen létrehozva.' }
         format.json { render action: 'show', status: :created, location: @document }
       else
         format.html { render action: 'new' }
@@ -43,7 +45,7 @@ class DocumentsController < ApplicationController
   def update
     respond_to do |format|
       if @document.update(document_params)
-        format.html { redirect_to @document, notice: 'Document was successfully updated.' }
+        format.html { redirect_to documents_url, notice: 'Dokumentum sikeresen frissítve.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -70,6 +72,6 @@ class DocumentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def document_params
-      params.require(:document).permit(:name, :slug, :doc)
+      params.require(:document).permit(:name, :slug, :doc, :doctype)
     end
 end

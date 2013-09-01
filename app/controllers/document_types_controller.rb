@@ -1,3 +1,4 @@
+# coding: UTF-8
 class DocumentTypesController < ApplicationController
   before_action :set_document_type, only: [:show, :edit, :update, :destroy]
 
@@ -28,10 +29,10 @@ class DocumentTypesController < ApplicationController
 
     respond_to do |format|
       if @document_type.save
-        format.html { redirect_to @document_type, notice: 'Document type was successfully created.' }
+        format.html { redirect_to :back, notice: 'Dokumentum típus létrehozva.' }
         format.json { render action: 'show', status: :created, location: @document_type }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to :back }
         format.json { render json: @document_type.errors, status: :unprocessable_entity }
       end
     end
@@ -42,7 +43,7 @@ class DocumentTypesController < ApplicationController
   def update
     respond_to do |format|
       if @document_type.update(document_type_params)
-        format.html { redirect_to @document_type, notice: 'Document type was successfully updated.' }
+        format.html { redirect_to @document_type, notice: 'Dokumentum típus .' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +57,7 @@ class DocumentTypesController < ApplicationController
   def destroy
     @document_type.destroy
     respond_to do |format|
-      format.html { redirect_to document_types_url }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end

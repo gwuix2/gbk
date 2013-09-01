@@ -1,11 +1,12 @@
 .row
   .large-12.columns
-    %h4 Hírek vezérlés
+    %h4 Hírek/Projekt vezérlés
     %table
       %thead
         %tr
           %th Hely
           %th Létrehozva
+          %th H/P
           %th Cím
           %th Test
           %th Képek
@@ -18,6 +19,11 @@
           %td
             = post.created_at.to_date
           %td
+            - if post.project
+              Projekt
+            - else
+              Hír
+          %td
             = link_to post do
               = post.title
           %td
@@ -29,4 +35,4 @@
               %i.fi-page-edit.large-text
             = link_to post, method: :delete, title: "Törlés", confirm: 'Biztos hogy törlöd?' do
               %i.fi-trash.large-text
-    = link_to "Új hír", new_post_path, class: "button"
+    = link_to "Új hír v. projekt", new_post_path, class: "button"

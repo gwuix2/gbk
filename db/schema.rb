@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130828150031) do
+ActiveRecord::Schema.define(version: 20130831075017) do
 
   create_table "document_types", force: true do |t|
     t.string   "name"
@@ -56,7 +56,9 @@ ActiveRecord::Schema.define(version: 20130828150031) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "slug",       limit: nil
+    t.string   "slug"
+    t.boolean  "project"
+    t.date     "project_year"
   end
 
   add_index "posts", ["slug"], name: "index_posts_on_slug", unique: true

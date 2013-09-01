@@ -1,27 +1,55 @@
 - provide(:title, "Dokumentumok")
 %h1 Dokumentumok
 
-- @documents.each do |document|
-  %p
-    = document.doctype
-    = link_to document.name, document
-    = link_to document.doc.url do
-      Letöltés
-      %i.fi-download
 
-= link_to 'New Document', new_document_path
 
-%br/
-%br/
-%hr/
-.row
-  .large-5.columns
-    %h4 Új dokumentum típus
-    = simple_form_for DocumentType.new do |f|
-      = f.input :name, label: "Név"
-      = f.submit "Mentés", class: "button small"
-    %h5 Dokumentum típusok:
-    - @document_types.each do |dc|
-      %span
-        = dc.name
-        = link_to "x", dc,  method: :delete
+- @document_groups.each do |type, documents|
+  %h3.subheader= type
+  - documents.each do |d|
+    %ul.inline-list
+      %li --
+      %li
+        %strong= d.name
+      %li{ title: "Feltöve"}= d.created_at.to_date
+      %li
+        = link_to d.doc.url do
+          %i.fi-download
+          Letöltés
+      - if user_signed_in?
+        %li
+          = link_to edit_document_path(d) do
+            %i.fi-page-edit
+            Szerkesztés
+        %li
+          = link_to d, method: :delete, confirm: "Biztos hogy törlöd?" do
+            %i.fi-trash
+            Törlés
+        
+/- @documents.each do |document|
+/  %p
+/    = document.doctype
+/    = link_to document.name, document
+/    - unless document.doc.blank?
+/      = link_to document.doc.url do
+/        Letöltés
+/        %i.fi-download
+/    - else
+/      Nincs csatolmány
+
+- if user_signed_in?
+  %hr/
+  = link_to 'Új dokumentum', new_document_path, class: "button"
+  %hr/
+  .row
+    .large-6.columns
+      %h4 Új dokumentum típus
+      = simple_form_for DocumentType.new do |f|
+        = f.input :name, label: "Név"
+        = f.submit "Mentés", class: "button small"
+      %h5 Dokumentum típusok:
+      %ul.inline-list
+        - @document_types.each do |dc|
+          %li
+            %span
+              = dc.name
+              = link_to "x", dc, title: "törlés",  method: :delete, class: "round alert label"
