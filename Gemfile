@@ -6,7 +6,7 @@ gem 'thin'
 
 group :development do
   gem 'better_errors'
-  gem 'sqlite3'
+  gem 'pg'
   gem 'binding_of_caller'
 end
 
