@@ -1,6 +1,7 @@
 class Photo < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
+  belongs_to :post
   #before_create :default_name
   #before_create :has_post?  
 
