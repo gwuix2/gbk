@@ -8,7 +8,7 @@
   - documents.each do |d|
     %ul.inline-list
       %li
-        %5.subheader= d.name
+        %h6.subheader= d.name
       %li{ title: "Feltöve"}= d.created_at.to_date
       %li
         = link_to d.doc.url do
