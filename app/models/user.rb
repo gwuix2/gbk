@@ -4,4 +4,12 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  before_save :we_enough?
+
+  def we_enough?
+    if User.all.count > 2
+   	  false
+    end
+  end
 end

@@ -4,12 +4,11 @@
 
 
 - @document_groups.each do |type, documents|
-  %h3.subheader= type
+  %h3= type
   - documents.each do |d|
     %ul.inline-list
-      %li --
       %li
-        %strong= d.name
+        %5.subheader= d.name
       %li{ title: "Feltöve"}= d.created_at.to_date
       %li
         = link_to d.doc.url do

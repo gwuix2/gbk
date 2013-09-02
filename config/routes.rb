@@ -1,6 +1,4 @@
 Gersebkor::Application.routes.draw do
-  
-  resources :document_types
 
   get 'bejelentkezes' => "new_user_ses"
   get 'bemutatkozas' => "static_pages#about"
@@ -13,13 +11,16 @@ Gersebkor::Application.routes.draw do
   end
   
   devise_for :users
-  resources :posts, path: "hirek"
+  resources :document_types
+  resources :posts, path: "tartalom"
   resources :documents, path: "dokumentumok"
   resources :photos, path: "kepek"
 
   root 'posts#index'
+  get "*gibberish", :to => "static_pages#routing_error"
 
   # The priority is based upon order of creation: first created -> highest priority.
+
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
